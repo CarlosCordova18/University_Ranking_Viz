@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta charset="UTF-8">
+    <title>Título único de máximo 65 caracteres</title>
+    <meta name="description" content="Breve descripción de lo que los usuarios encontrarán en este documento, máximo 156 caracteres">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <script>
+        function draw (data) {
+            console.table(data[2]);
+        }
+    </script>
+</head>
+<body>
+
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+        d3.csv("Times World University Rankings (2016).csv", draw);
+    </script>
+</body>
+</html>
