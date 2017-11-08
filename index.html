@@ -4,21 +4,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
     <meta charset="UTF-8">
-    <title>Título único de máximo 65 caracteres</title>
-    <meta name="description" content="Breve descripción de lo que los usuarios encontrarán en este documento, máximo 156 caracteres">
-    <!-- <link rel="stylesheet" href="css/styles.css"> -->
-    <script>
-        function draw (data) {
-            console.table(data[2]);
+    <title>World's University Ranking 2016</title>
+    <meta name="description" content="Table Lens of the World's Ranking of Universities in 2016 dataset.">
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        html {
+            font-family: sans-serif;
         }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 1200px;
+            table-layout: fixed;
+        }
+
+        table,
+        table tr,
+        table td {
+            padding: 0;
+            border: 0;
+            border-spacing: 0;
+        }
+
+        #col1 {
+            background: yellow;
+            width: 60px;
+        }
+
+        #col2 {
+            background: green;
+            width: 550px;
+        }
+
+        #col3,
+        #col4,
+        #col5,
+        #col6,
+        #col7,
+        #col8 {
+            width: 100px;
+        }
+
+        .text__column {
+            vertical-align: middle;
+        }
+
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+        // Inspiration: http://bl.ocks.org/jfreels/6734025
+        function draw(data) {
+            'use strict'
+            // Create table
+            var table = d3.select('body').append('table')
+                                            .attr("cellspacing", "0");
+            // Create colgroup to change width of the columns
+            var colgroup = table.append('colgroup');
+            // Create header element of the table
+            var thead = table.append('thead')
+            // Create body element of the table
+            var	tbody = table.append('tbody');
+            // Array of columns to be displayed
+            var columns = [
+                            'World_Rank',
+                            'University_Name',
+                            'Research_Rating',
+                            'Industry_Income_Rating',
+                            'Teaching_Rating',
+                            'Inter_Outlook_Rating',
+                            'Citations_Rating',
+                            '%_Female_Students' 
+            ];
+            var titles = [
+                            '#',
+                            'University',
+                            'Research',
+                            'Industry Income',
+                            'Teaching',
+                            'International Outlook',
+                            'Citations',
+                            '% Female Students'
+            ];
+
+            colgroup.selectAll('col')
+              .data(titles).enter()
+              .append('col')
+                .attr('id', function (title, i) { return 'col'+ (i+1); });
+
+            // Create the header row
+            thead.append('tr')
+              .selectAll('th')
+              .data(titles).enter()
+              .append('th')
+                .attr('class', 'header__row')
+                .text(function (title) { return title; });
+
+            // Create a row for each element in the dataset
+            var rows = tbody.selectAll('tr')
+              .data(data)
+              .enter()
+              .append('tr');
+
+            // Columns for Name, Rank and Country
+            var textColumns = columns.slice(0, 2);
+            var nameAndData = rows.selectAll('.text')
+                .data(function (row) {
+                    return textColumns.map(function (column) {
+                    return {column: column, value: row[column]};
+                    });
+                })
+                .enter()
+                .append('td')
+                    .attr("class", "text__column")
+                    // .attr("class", function (d) { return d.column; })
+                    .text(function (d) { return d.value; });
+            
+            var researchExtent = d3.extent(data, function(d) {
+                return d['Research_Rating'];
+            });
+            var researchScale = d3.scaleLinear().domain(researchExtent).range([0, 100]);
+            var researchColumn = columns.slice(3, 4);
+            var researchRating = rows.selectAll('.research_rating')
+                .data(function (row) {
+                    return researchColumn.map(function (column) {
+                    return {column: column, value: row[column]};
+                    });
+                })
+                // .data(data["Research_Rating"])
+                .enter()
+                .append('td')
+                    .attr("class", ".research_rating")
+                    .append('svg')
+                        // .attr('width', '100%')
+                        .attr('height', '25')
+                        .append('rect')
+                            .attr('height', '100%')
+                            .attr('fill', 'blue')
+                            .attr('width', function(d) { return researchScale(d.value); });
+            
+                    
+                  
+            
+            return table;
+        }              
     </script>
 </head>
 <body>
 
-
-    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script>
-        d3.csv("Times World University Rankings (2016).csv", draw);
+        // Load the dataset
+        d3.csv("Times World University Rankings (2016).csv", function (d) {
+            // Parse the elements
+            // d["World_Rank"] = +d["World_Rank"];
+            d['University_Name'] = d['University_Name'] + ' | ' + d['Country'];
+            d['Research_Rating'] = +d['Research_Rating'];
+            d['Industry_Income_Rating'] = +d['Industry_Income_Rating'];
+            d['Inter_Outlook_Rating'] = +d['Inter_Outlook_Rating'];
+            d['Citations_Rating'] = +d['Citations_Rating'];
+            d['%_Female_Students'] = +d['%_Female_Students'];
+            d['Teaching_Rating'] = +d['Teaching_Rating'];
+            return d;
+        }, draw);
     </script>
 </body>
 </html>
