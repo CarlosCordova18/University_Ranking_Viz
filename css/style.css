@@ -1,0 +1,82 @@
+html {
+    font-size: 14px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+table {
+    width: 1200px;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table,
+table tr,
+table td {
+    padding: 0;
+    border: 0;
+    border-spacing: 0;
+}
+
+#col1 {
+    width: 60px;
+}
+
+#col2 {
+    width: 540px;
+}
+
+#col3,
+#col4,
+#col5,
+#col6 {
+    width: 180px;
+}
+
+.text__column {
+    vertical-align: middle;
+}
+
+.label__number {
+    font-size: 12px;
+    fill: black;
+    font-weight: bold;
+}
+
+.header__row {
+    padding: .5em;
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+tr :first-child {
+    text-align: center;
+}
+
+tr :nth-child(2) {
+    text-align: right;
+    padding-right: .5em;
+}
+
+.header__row:nth-child(2) {
+    text-align: center;
+}
+
+.title {
+    margin: 2rem auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+thead {
+    background-color: black;
+    color: white;
+}
