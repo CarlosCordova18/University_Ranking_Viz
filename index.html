@@ -9,14 +9,38 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- D3 v.4 -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="js/script.js"></script>
+    <!-- Data map -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
+    <!-- My Scripts -->
+    <script src="js/mainScript.js"></script>
+    <script src="js/tableLens.js"></script>
+    <script src="js/map.js"></script>
 </head>
 <body>
     <h1 class="title">
-        Table Lens Visualization of the Main Ratings in the World's Universities Ranking 2016
+        Visualizations of the Main Ratings in the World's Universities Ranking 2016
     </h1>
-    <table id="table__lens"></table>
+    
+    <div class="table">
+        <h1 class="title subtitle">
+            Table Lens
+        </h1>
+        <table id="table__lens"></table>
+    </div>
+
+    <div class="container">
+            <div class="map">
+                <h1 class="title subtitle">
+                    Choroplet for the number of Universities in each Country
+                </h1>
+                <div id="container__map"></div>
+            </div>
+    </div>
+    
 
 
     <script>

@@ -80,3 +80,34 @@ thead {
     background-color: black;
     color: white;
 }
+
+#container__map { 
+    border:1px dotted blue;
+    width: 100%;
+    height: 475px;
+    position: relative;
+}
+
+.hoverinfo {
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.subtitle {
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 1.7rem;
+}
+
+.container,
+.table {
+    margin-top: 3rem;
+}
+
+.container {
+    width: 1200px;
+}
+
+.map {
+    width: 50%;
+}
