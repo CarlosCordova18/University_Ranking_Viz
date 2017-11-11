@@ -9,35 +9,41 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- D3 v.4 -->
-    <script src="https://d3js.org/d3.v4.min.js"></script>
     <!-- Data map -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
     <!-- My Scripts -->
+    <script src="js/map.js"></script>
     <script src="js/mainScript.js"></script>
     <script src="js/tableLens.js"></script>
-    <script src="js/map.js"></script>
+    <script src="js/stackedBar.js"></script>
 </head>
 <body>
     <h1 class="title">
-        Visualizations of the Main Ratings in the World's Universities Ranking 2016
+        Visualizations of the "World's Universities Ranking 2016" Dataset
     </h1>
     
     <div class="table">
         <h1 class="title subtitle">
-            Table Lens
+            Table Lens for the Main Scores for each University
         </h1>
         <table id="table__lens"></table>
     </div>
 
     <div class="container">
         <h1 class="title subtitle">
-            Choroplet map for the number of Universities of the Ranking in each Country
+            Choroplet map for the number of Universities in the Ranking for each Country
         </h1>
         <p class="indications">Put the mouse over the country to see the number of universities located there.</p>
         <div id="container__map"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="title subtitle">
+            Stacked Chart for the Countries and the Universities divided in ranges based on their rank
+        </h1>
+        <div id="stackedBar"></div>
     </div>
     
 

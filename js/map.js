@@ -10,7 +10,7 @@ function createMap(data) {
         if (countries[countryName]) {
             countries[countryName].number++;
         } else {
-            countries[countryName] = { number: 1, fillColor: undefined };
+            countries[countryName] = { number: 1, fillColor: undefined};
         }
         // Set the new max or new min
         if (countries[countryName].number < minValue) {
@@ -23,8 +23,6 @@ function createMap(data) {
     // We need to colorize every country based on "number of universities in the ranking"
     // Create palette (using min/max series-value)
     var paletteScale = d3.scale.linear().domain([minValue,maxValue]).range(["#fde0c5","#eb4a40"]);
-    console.log(paletteScale(1));
-    console.log(paletteScale(30));
     // This is the final dataset that will be passed to plot the map in the screen
     for (var country in countries) {
         if (countries.hasOwnProperty(country)) {
@@ -33,7 +31,6 @@ function createMap(data) {
             countries[country].fillColor = paletteScale(element.number);
         }
     }
-    console.log(countries);
     // Render map
     var map = new Datamap({
         element: document.getElementById('container__map'),
