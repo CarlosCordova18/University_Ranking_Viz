@@ -99,7 +99,7 @@ function createMap(data) {
 
     // We need to colorize every country based on "number of universities in the ranking"
     // Create palette (using min/max series-value)
-    var paletteScale = d3.scale.linear().domain([minValue,maxValue]).range(["#EFEFEF","#02317a"]);
+    var paletteScale = d3.scale.linear().domain([minValue,maxValue]).range(["#fde0c5","#eb4a40"]);
     console.log(paletteScale(1));
     console.log(paletteScale(30));
     // This is the final dataset that will be passed to plot the map in the screen
@@ -116,13 +116,13 @@ function createMap(data) {
         element: document.getElementById('container__map'),
         projection: 'mercator', // big world map
         // Countries don't listed in dataset will be painted with this color
-        fills: { defaultFill: '#FFF' },
+        fills: { defaultFill: '#e8ebef' },
         data: countries,
         geographyConfig: {
             borderColor: '#DEDEDE',
             highlightBorderWidth: 2,
             highlightFillColor: function(geo) {
-                return geo['fillColor'] || '#FFF';
+                return geo['fillColor'] || '#e8ebef';
             },
             // Only change border color
             highlightBorderColor: '#B7B7B7',
