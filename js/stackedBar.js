@@ -72,7 +72,8 @@ function createStackedBar(dataset) {
         .rangeRound([height, 0]);
 
     var color = d3.scale.ordinal()
-        .range(["#ecda9a","#efc47e","#f3ad6a","#f7945d","#f97b57","#f66356","#ee4d5a"]);
+        // .range(["#ecda9a","#efc47e","#f3ad6a","#f7945d","#f97b57","#f66356","#ee4d5a"]);
+        .range(["#f3e79b","#fac484","#f8a07e","#eb7f86","#ce6693","#a059a0","#5c53a5"]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
