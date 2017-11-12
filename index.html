@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
     <meta charset="UTF-8">
     <title>World's University Ranking 2016</title>
-    <meta name="description" content="Table Lens of the World's Ranking of Universities in 2016 dataset.">
+    <meta name="description" content="Visualizations of the World's Ranking of Universities in 2016 dataset.">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <!-- Reset Styles -->
     <link rel="stylesheet" href="css/reset.css">
+    <!-- My styles -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Data map -->
+    <!-- D3.js and Data map -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
@@ -52,8 +54,7 @@
         // Load the dataset
         d3.csv("Times World University Rankings (2016).csv", function (d) {
             // Parse the elements
-            // d["World_Rank"] = +d["World_Rank"];
-            d['University_Name'] = d['University_Name'] + ' | ' + d['Country'];
+            d['University_Name'] = d['University_Name'] + ' ~ ' + d['Country'];
             d['Research_Rating'] = +d['Research_Rating'];
             d['Industry_Income_Rating'] = +d['Industry_Income_Rating'];
             d['Inter_Outlook_Rating'] = +d['Inter_Outlook_Rating'];
