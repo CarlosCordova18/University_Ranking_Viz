@@ -10,20 +10,20 @@ function createTable(data) {
     var	tbody = table.append('tbody');
     // Array of columns to be displayed
     var columns = [
-    'World_Rank',
-    'University_Name',
-    'Research_Rating',
-    'Teaching_Rating',
-    'Industry_Income_Rating',
-    'Citations_Rating',
+        'World_Rank',
+        'University_Name',
+        'Research_Rating',
+        'Teaching_Rating',
+        'Industry_Income_Rating',
+        'Citations_Rating',
     ];
     var titles = [
-    '#',
-    'University',
-    'Research',
-    'Teaching',
-    'Industry Income',
-    'Citations',
+        '#',
+        'University',
+        'Research',
+        'Teaching',
+        'Industry Income',
+        'Citations',
     ];
 
     // Create a col element for each column and its id to add styles to them
@@ -49,15 +49,14 @@ function createTable(data) {
     // Columns for Name, Rank and Country (NOMINAL)
     var textColumns = columns.slice(0, 2);
     var nameAndData = rows.selectAll('.text')
-    .data(function (row) {
-    return textColumns.map(function (column) {
-    return {column: column, value: row[column]};
-    });
-    })
-    .enter()
-    .append('td')
-    .attr("class", "text__column")
-    .text(function (d) { return d.value; });
+                            .data(function (row) {
+                                return textColumns.map(function (column) {
+                                return {column: column, value: row[column]};
+                                });
+                            }).enter()
+                            .append('td')
+                            .attr("class", "text__column")
+                            .text(function (d) { return d.value; });
 
     /***** Column for Research Rating *****/
     // Select just the required field

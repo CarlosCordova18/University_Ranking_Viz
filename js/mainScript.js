@@ -1,4 +1,4 @@
-// For datamaps, i'll create one field more, the shortname of the country using this function
+// For datamaps, i need the short ISO3 name of each country, this function gets it for each country in the dataset
 function getShortName(name) {
     switch(name) {
         case 'Argentina': return 'ARG';
@@ -75,12 +75,12 @@ function getShortName(name) {
     }
 }
 
-
-
-// Resources used:
+// Resources:
 // Table Lens: http://bl.ocks.org/jfreels/6734025
 // Datamaps: https://github.com/markmarkoh/datamaps/blob/master/README.md#getting-started
 // Stacked bar chart: https://bl.ocks.org/mbostock/3886208
+
+// Main function, just call the others functions
 function draw(data) {
     'use strict'
     createTable(data);

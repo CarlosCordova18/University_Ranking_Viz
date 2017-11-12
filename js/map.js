@@ -1,9 +1,9 @@
 function createMap(data) {
     // This array will be used to save the ISO 3 name of the country and the number of universities that are located in the country
     var countries = {};
-    // Variables used to make later the color palette
+    // These will be used later to make the color palette
     var maxValue = 0, minValue = 900;
-    // Auxiliar variable
+    // Auxiliar
     var countryName;
     for (var i = 0; i < data.length; i++) {
         countryName = getShortName(data[i]['Country']);
@@ -27,14 +27,13 @@ function createMap(data) {
     for (var country in countries) {
         if (countries.hasOwnProperty(country)) {
             var element = countries[country];
-            // console.log(element.number);
             countries[country].fillColor = paletteScale(element.number);
         }
     }
     // Render map
     var map = new Datamap({
         element: document.getElementById('container__map'),
-        projection: 'mercator', // big world map
+        projection: 'mercator', // Big world map
         // Countries don't listed in dataset will be painted with this color
         fills: { defaultFill: 'white' },
         data: countries,
@@ -48,9 +47,9 @@ function createMap(data) {
             highlightBorderColor: 'black',
             // Show desired information in tooltip
             popupTemplate: function(geo, data) {
-                // don't show tooltip if country don't present in dataset
+                // Don't show tooltip if country is not present in dataset
                 if (!data) { return ; }
-                // tooltip content
+                // Tooltip content
                 return ['<div class="hoverinfo">',
                     '<strong>', geo.properties.name, '</strong>',
                     '<br># of Universities: <strong>', data.number, '</strong>',
