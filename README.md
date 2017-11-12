@@ -21,6 +21,7 @@ For local development just do this:
 ```sh
 $ git clone https://github.com/Oberyn18/University_Ranking_Viz.git
 $ cd University_Ranking_Viz
+$ python -m http.server
 ```
 And access the project files located there.
 
