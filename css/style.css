@@ -10,6 +10,34 @@ html {
     box-sizing: border-box;
 }
 
+/* General styles */
+.title {
+    margin: 2rem auto;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    
+}
+
+.subtitle {
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 1.7rem;
+}
+
+.container,
+.table {
+    margin-top: 3rem;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 700px;
+}
+
+
 /* Table lens styles */
 table {
     width: 1200px;
@@ -75,34 +103,6 @@ thead {
     color: white;
 }
 
-/* General styles */
-.title {
-    margin: 2rem auto;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    
-}
-
-.subtitle {
-    font-weight: normal;
-    text-decoration: underline;
-    font-size: 1.7rem;
-}
-
-
-.container,
-.table {
-    margin-top: 3rem;
-}
-
-.container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-    height: 700px;
-}
-
 /* Map styles */
 #container__map { 
     border: 1px solid black;
@@ -118,10 +118,11 @@ thead {
 }
 
 .indications {
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: bold;
 }
 
+/* Stacked Bar styles */
 .axis path,
 .axis line {
   fill: none;
