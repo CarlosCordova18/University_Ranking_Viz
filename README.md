@@ -2,7 +2,7 @@
 
 Graphic Visualizations using **D3.js** and **Datamaps** library for the *"Times World University Ranking 2016"* dataset.
 
-You could access from anywhere to the visualizations webpage just clicking [this link](https://oberyn18.github.io/University_Ranking_Viz/).
+You could access from anywhere to the visualizations webpage just clicking [this link](https://carloscordova18.github.io/University_Ranking_Viz/).
 
 This project includes:
   - A Table Lens Visualization for the Main Ratings for each University in the dataset
